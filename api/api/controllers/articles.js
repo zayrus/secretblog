@@ -11,6 +11,7 @@ function articles(main){
         return main.libs.Users.find(token)
       })
       .then( () => {
+        console.log(req.body)
         return main.libs.Articles.add(req.body)
       })
       .then( article => {
