@@ -8,8 +8,7 @@
   "license": "GNU GPLv3",
   "main": "app.js",
   "dependencies": {
-    "restify": "^4.0.2",
-    "swagger-restify-mw": "^0.1.0",
+    "express": "^4.14.0",
     "bcrypt": "^0.8.5",
     "chai": "^3.5.0",
     "cors": "^2.8.1",
@@ -36,7 +35,7 @@
   },
   "scripts": {
     "start": "node index",
-    "test": "swagger project test api"
+    "test": "swagger project test api",
     "debug": "DEBUG=* node index",
     "mondebug": "nodemon index --exec 'npm run debug'",
     "lint": "eslint api",

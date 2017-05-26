@@ -3,10 +3,19 @@
 function articles(main){
   return {
     add: (req, res, next) => {
-      main.libs.Articles.add(req.body)
-      .then( hotel => {
+      const promise = new Promise ( (resolve) => {
+        const authToken = main.libs.Tokens.getToken(req.headers)
+        resolve(authToken)
+      })
+      .then( token => {
+        return main.libs.Users.find(token)
+      })
+      .then( () => {
+        return main.libs.Articles.add(req.body)
+      })
+      .then( article => {
         res.json(article)
-      }) 
+      })
       .catch( err => {
         next(err)
       })
@@ -38,7 +47,7 @@ function articles(main){
         const authToken = main.libs.Tokens.getToken(req.headers)
         resolve(authToken)
       })
-      .then( (token) => {
+      .then( token => {
         return main.libs.Users.find(token)
       })
       .then( () => {
@@ -63,7 +72,7 @@ function articles(main){
         return main.libs.Users.find(token)
       })
       .then( () => {
-        return main.libs.articles.delete(id)
+        return main.libs.Articles.delete(id)
       })
       .then( () => {
         res.json({msg: 'article deleted'})

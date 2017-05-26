@@ -7,7 +7,7 @@ function Articles(main) {
 }
 
 Articles.prototype.add = function(obj) {
-  let addArticle= new ArticlesMode(obj)
+  let addArticle= new ArticlesModel(obj)
   let promise = addArticle.save()
     
   return promise

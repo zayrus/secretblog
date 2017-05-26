@@ -72,6 +72,11 @@ paths:
       description: add article
       operationId: postarticle
       parameters:
+        - name: "authorization"
+          in: header
+          description: auth headers
+          required: true
+          type: string
         - name: Articles
           in: body
           description: article properties
@@ -131,6 +136,11 @@ paths:
       description: update info of specific article by id 
       operationId: putarticle
       parameters:
+        - name: "authorization"
+          in: header
+          description: auth headers
+          required: true
+          type: string
         - name: id
           in: path
           description: id of article
@@ -158,6 +168,11 @@ paths:
       description: remove article by id 
       operationId: delarticle
       parameters:
+        - name: "authorization"
+          in: header
+          description: auth headers
+          required: true
+          type: string
         - name: id
           in: path
           description: id of article

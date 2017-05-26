@@ -6,7 +6,7 @@ var ArticlesSchema = new Schema({
   body: String
 })
 
-const ArticleModel = mongoose.model('Article', ArticlessSchema)
+const ArticleModel = mongoose.model('Article', ArticlesSchema)
 
 module.exports.Article = ArticleModel
 
