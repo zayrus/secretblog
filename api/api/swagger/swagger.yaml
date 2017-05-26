@@ -212,7 +212,58 @@ definitions:
   Articles:
     type: object
     properties:
+      writeDate:
+        type: string
+        format: date-time
       title:
         type: string
       body:
+        type: string
+      images:
+        type: array
+        items:
+          $ref: "#/definitions/Image"
+      videos:
+        type: array
+        items:
+          $ref: "#/definitions/Video"
+      tags:
+        type: array
+        items:
+          $ref: "#/definitions/Tag"
+      comments:
+        type: array
+        items:
+          $ref: "#/definitions/Comment"
+      likes:
+        type: integer
+        format: int64
+      relatedPosts:
+        type: array
+        items:
+          $ref: "#/definitions/Related"
+  Image:
+    properties:
+      url:
+        type: string
+  Video:
+    properties:
+      url:
+        type: string
+  Comment:
+    properties:
+      date:
+        type: string
+        format: date-time
+      name:
+        type: string
+      text:
+        type: string
+  Tag:
+    properties:
+      name:
+        type: string
+  Related:
+    properties:
+      id:
         type: string
